@@ -8,6 +8,9 @@ fi
 
 if [[ "$TRAVIS_BRANCH" == "master" ]]; then
   echo "We ARE on the master branch!!!."
+  docker build -t rhernandog/multisample-one-worker ./worker
+  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  docker push rhernandog/multisample-one-client
   # This will analyze the current branch TheDFury and react accordingly
   exit 0
 fi
