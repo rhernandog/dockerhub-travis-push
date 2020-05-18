@@ -16,11 +16,11 @@ if [[ "$TRAVIS_PULL_REQUEST" == true && "$TRAVIS_PULL_REQUEST_BRANCH" != "master
   exit 0
 fi
 
-if [[ "$TRAVIS_PULL_REQUEST" == false && "$TRAVIS_BRANCH" == "master"]]; then
-  echo "We are in the master branch"
-  echo "This is not a PR, most likely a merge"
-  exit 0
-fi
+# if [[ "$TRAVIS_PULL_REQUEST" == false && "$TRAVIS_BRANCH" == "master"]]; then
+#   echo "We are in the master branch"
+#   echo "This is not a PR, most likely a merge"
+#   exit 0
+# fi
 
 # if [[ "$TRAVIS_BRANCH" == "master" ]]; then
 #   echo "We ARE on the master branch!!!."
