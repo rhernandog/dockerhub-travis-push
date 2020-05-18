@@ -5,9 +5,3 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   # This will analyze the current branch TheDFury and react accordingly
   exit 0
 fi
-
-if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-  echo "We ARE on the master branch!!!."
-  # This will analyze the current branch TheDFury and react accordingly
-  exit 0
-fi
