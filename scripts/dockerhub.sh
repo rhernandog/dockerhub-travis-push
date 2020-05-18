@@ -11,7 +11,10 @@ fi
 
 if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   echo "this IS THE MASTER BRANCH!!!"
-  echo "this is not a pull request"
+  echo "this is not a pull request, push to dockerhub!!!"
+  docker build -t rhernandog/dockerhub-push-test ./
+  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  docker push rhernandog/dockerhub-push-test
   exit 0
 fi
 
