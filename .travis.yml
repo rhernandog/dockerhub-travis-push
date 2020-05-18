@@ -7,7 +7,7 @@ script:
   - npm run test
 
 after_success:
-  - echo "$TRAVIS_BRANCH" ;
+  - echo $TRAVIS_BRANCH
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
       docker build -t rhernandog/dockerhub-travis-test . ;
       echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
