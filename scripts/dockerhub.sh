@@ -2,15 +2,16 @@
 
 if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   echo "We're not on the master branch!!."
+  echo "$TRAVIS_BRANCH"
   # This will analyze the current branch TheDFury and react accordingly
   exit 0
 fi
 
 if [[ "$TRAVIS_BRANCH" == "master" ]]; then
   echo "We ARE on the master branch!!!."
-  docker build -t rhernandog/multisample-one-worker ./worker
-  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  docker push rhernandog/multisample-one-client
-  # This will analyze the current branch TheDFury and react accordingly
+  echo "$TRAVIS_BRANCH"
+  # docker build -t rhernandog/multisample-one-worker ./worker
+  # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # docker push rhernandog/multisample-one-client
   exit 0
 fi
