@@ -13,11 +13,13 @@ if [["$TRAVIS_PULL_REQUEST" == true && "$TRAVIS_PULL_REQUEST_BRANCH" != "master"
   echo "this is a pull request"
   echo "$TRAVIS_PULL_REQUEST"
   echo "$TRAVIS_PULL_REQUEST_BRANCH"
+  exit 0
 fi
 
 if [[ ! "$TRAVIS_PULL_REQUEST" && "$TRAVIS_BRANCH" == "master"]]; then
   echo "We are in the master branch"
   echo "This is not a PR, most likely a merge"
+  exit 0
 fi
 
 # if [[ "$TRAVIS_BRANCH" == "master" ]]; then
