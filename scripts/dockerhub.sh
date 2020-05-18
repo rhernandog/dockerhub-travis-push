@@ -4,8 +4,9 @@ echo "$TRAVIS_BRANCH"
 echo "$TRAVIS_PULL_REQUEST"
 echo "$TRAVIS_PULL_REQUEST_BRANCH"
 
-if [[ "$TRAVIS_PULL_REQUEST" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" && "$TRAVIS_PULL_REQUEST_BRANCH" ]]; then
   echo "this is a PULL REQUEST"
+  echo "THIS IS NOT THE MASTER BRANCH"
 fi
 
 if [[ "$TRAVIS_BRANCH" != "master" ]]; then
