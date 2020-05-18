@@ -3,6 +3,9 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - chmod +x ./scripts/dockerhub.sh
+
 script:
   - npm run test
 
