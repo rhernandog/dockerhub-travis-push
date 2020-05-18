@@ -1,11 +1,14 @@
 #!/bin/bash
 
+echo "$TRAVIS_BRANCH"
+echo "$TRAVIS_PULL_REQUEST"
+echo "$TRAVIS_PULL_REQUEST_BRANCH"
+
 if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   echo "We're not on the master branch!!."
   echo "$TRAVIS_BRANCH"
   echo "$TRAVIS_PULL_REQUEST"
   echo "$TRAVIS_PULL_REQUEST_BRANCH"
-  # This will analyze the current branch TheDFury and react accordingly
   exit 0
 fi
 
