@@ -6,9 +6,9 @@ services:
 script:
   - npm run test
 
-# after_success:
-#   - docker build -t rhernandog/dockerhub-travis-test .
-#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#   - docker push rhernandog/dockerhub-travis-test
-#   on:
-#     branch: master
+after_success:
+  - docker build -t rhernandog/dockerhub-travis-test .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push rhernandog/dockerhub-travis-test
+  on:
+    branch: master
