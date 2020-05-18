@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - chmod +x ./scripts/dockerhub.sh
+  - chmod +x dockerhub.sh
 
 script:
   - npm run test
