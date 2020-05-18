@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   echo "We're not on the master branch!!."
