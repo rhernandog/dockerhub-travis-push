@@ -9,13 +9,24 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   exit 0
 fi
 
-if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-  echo "We ARE on the master branch!!!."
-  echo "$TRAVIS_BRANCH"
+if [["$TRAVIS_PULL_REQUEST" && "$TRAVIS_PULL_REQUEST_BRANCH" != "master"]]; then
+  echo "this is a pull request"
   echo "$TRAVIS_PULL_REQUEST"
   echo "$TRAVIS_PULL_REQUEST_BRANCH"
-  # docker build -t rhernandog/multisample-one-worker ./worker
-  # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # docker push rhernandog/multisample-one-client
-  exit 0
 fi
+
+if [[!"$TRAVIS_PULL_REQUEST" && "$TRAVIS_BRANCH" == "master"]]; then
+  echo "We are in the master branch"
+  echo "This is not a PR, most likely a merge"
+fi
+
+# if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+#   echo "We ARE on the master branch!!!."
+#   echo "$TRAVIS_BRANCH"
+#   echo "$TRAVIS_PULL_REQUEST"
+#   echo "$TRAVIS_PULL_REQUEST_BRANCH"
+#   # docker build -t rhernandog/multisample-one-worker ./worker
+#   # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+#   # docker push rhernandog/multisample-one-client
+#   exit 0
+# fi
