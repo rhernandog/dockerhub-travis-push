@@ -10,6 +10,5 @@ after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
       docker build -t rhernandog/dockerhub-travis-test . ;
       docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
-      # echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin ;
       docker push rhernandog/dockerhub-travis-test ;
     fi
