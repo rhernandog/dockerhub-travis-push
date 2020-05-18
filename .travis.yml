@@ -7,5 +7,7 @@ script:
   - npm run test
 
 after_success:
-  - test $TRAVIS_BRANCH != "master" &&
-    echo "not master branch"
+  - test $TRAVIS_BRANCH = "master" &&
+    docker build -t rhernandog/dockerhub-travis-push . &&
+    docker login -u "$DOCKER_ID" -p $DOCKER_PASSWORD &&
+    docker push rhernandog/dockerhub-travis-push
